@@ -18,6 +18,46 @@ I want you to build a production-ready desktop application using the following a
                   SQLite
 ```
 
+## Application Description
+
+**Lujke** is a cross-platform desktop trading terminal that combines real-time market data with **AI price forecasting** to help traders anticipate what comes next and act on it. It is built as a Tauri 2 desktop shell wrapping a Vue 3 frontend, backed by a local ASP.NET Core API and SQLite (see the architecture above). The UI is captured in `UIdraft.html`.
+
+### Core Concept
+
+The defining feature is the **chart panel**, where the AI forecast reads as *what comes next* rather than an overlay:
+
+- The **actual market** (candlesticks) fills the left portion of the chart and is **horizontally scrollable**, so the user can scroll back through the history.
+- The **AI forecast** starts at the **last actual candle** and projects the next candles forward into the right portion of the chart (a shaded "forecast zone").
+- The view **auto-scrolls to the end** by default (showing the latest market + forecast) and re-pins to the end on resize when the user is already at the latest point.
+- A timeframe selector switches the resolution: **1m, 15m, 1D, 1W, 1M, 1Y**.
+
+### Desktop Layout (Main Trading Screen)
+
+| Area | Contents |
+| --- | --- |
+| **Top navigation bar** | Brand (*Lujke*), nav links (*Predict*, *Markets*), a live **ticker strip** (BTC, ETH, AAPL, EURUSD with % change), an **account summary** (Equity, Balance, P&L, Margin), and a **dark/light theme toggle**. |
+| **Chart panel** (center) | Symbol header (*AAPL / USD*) + *Market · AI Forecast · 1D*; a prediction summary (**Actual**, **Predicted**, **Accuracy %**); a legend (Actual market / AI forecast); the candlestick + forecast chart; and the timeframe selector. |
+| **Order panel** | Buy/Sell toggle, order type (*Limit*), Price / Quantity / Amount inputs, and a submit button (*Buy AAPL*). |
+| **Watchlist** | Live list of symbols with price and % change (AAPL, TSLA, NVDA, BTC, EURUSD). |
+| **Positions** | Open positions with size and P&L (up/down). |
+| **Order book** | Bid/ask ladder around a mid price. |
+| **Account stats** | Equity, Balance, P&L (day), Margin. |
+
+### Visual Style
+
+- A minimalist aesthetic (the draft is titled *"Minimalism"*): a warm neutral palette, thin typography, a warm brown accent color, and monochrome candlesticks with an accent-colored dashed forecast line.
+- Full **light/dark theme** support (persisted via `localStorage`).
+
+### Marketing / Landing Sections
+
+The draft also contains landing-page content (hero *"Less Complexity, More Focus"*, a stats strip, and a timeline) intended for the app's landing/about screens, kept separate from the trading terminal itself.
+
+### How It Maps to the Stack
+
+- **Vue 3** renders the UI (chart, order panel, watchlist, positions, order book, account stats) and holds client state (Pinia).
+- **ASP.NET Core** serves market data, order submission, positions, and the **AI prediction** (the forecast series shown after the last actual candle).
+- **SQLite** stores the local, persistent data (watchlist, positions, orders, settings).
+
 ## Technology Stack
 
 ### Desktop
