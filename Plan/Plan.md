@@ -47,6 +47,7 @@ The defining feature is the **chart panel**, where the AI forecast reads as *wha
 
 - A minimalist aesthetic (the draft is titled *"Minimalism"*): a warm neutral palette, thin typography, a warm brown accent color, and monochrome candlesticks with an accent-colored dashed forecast line.
 - Full **light/dark theme** support (persisted via `localStorage`).
+- **App logo / icon:** the brand icon is `Plan/Lujke.svg`. It should be used for the in-app brand logo (top nav bar, where the draft currently shows the text *"Lujke"*) and as the desktop application icon (window icon / Tauri app icon and installer icon).
 
 ### Marketing / Landing Sections
 
@@ -594,6 +595,18 @@ Tauri
  └── ASP.NET Core
           └── SQLite
 ```
+
+---
+
+### Branding / Logo
+
+- The application logo and icon is `Plan/Lujke.svg`.
+- Use it as:
+  - the in-app brand logo (top navigation bar),
+  - the desktop window icon,
+  - the Tauri application icon (bundled per platform, e.g. `src-tauri/icons`), and
+  - the installer/package icon for each target OS.
+- Ensure the SVG scales cleanly and works in both light and dark themes.
 
 ---
 
