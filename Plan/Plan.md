@@ -3,7 +3,7 @@
 I want you to build a production-ready desktop application using the following architecture:
 
 ```text
-                    MyApp
+                    Lujke
                       │
              ┌────────┴────────┐
              │                 │
@@ -56,7 +56,7 @@ I want you to build a production-ready desktop application using the following a
 Create a clean monorepo structure similar to:
 
 ```text
-MyApp/
+Lujke/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
@@ -80,7 +80,7 @@ MyApp/
 │   ├── Services/
 │   ├── DTOs/
 │   ├── Program.cs
-│   └── MyApp.Backend.csproj
+│   └── Lujke.Backend.csproj
 │
 ├── src-tauri/
 │   ├── src/
@@ -183,19 +183,19 @@ Examples:
 Windows:
 
 ```text
-%LOCALAPPDATA%\MyApp\app.db
+%LOCALAPPDATA%\Lujke\app.db
 ```
 
 macOS:
 
 ```text
-~/Library/Application Support/MyApp/app.db
+~/Library/Application Support/Lujke/app.db
 ```
 
 Linux:
 
 ```text
-~/.local/share/MyApp/app.db
+~/.local/share/Lujke/app.db
 ```
 
 Use Tauri's application-data directory facilities or another clean cross-platform mechanism to determine the correct location.
@@ -237,7 +237,7 @@ The final desktop application should behave as a single application from the use
 Expected startup:
 
 ```text
-User launches MyApp
+User launches Lujke
         ↓
 Tauri starts
         ↓
