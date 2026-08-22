@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimalism</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/index-xfgqKiMF.css">
+  <style>
+
+  /* ===== Color System ===== */
+  :root {
+    --color-bg-primary: #FAF9F6;      /* Off-white background */
+    --color-bg-secondary: #F5F3EE;    /* Secondary background */
+    --color-bg-tertiary: #FFFFFF;     /* Pure white background */
+    --color-text-primary: #2C2C2C;    /* Dark gray text */
+    --color-text-secondary: #6B6B6B;  /* Secondary text */
+    --color-text-tertiary: #A8A29E;   /* Tertiary text */
+    --color-accent: #8B7355;          /* Warm brown accent */
+    --color-border: #E8DFD0;          /* Light brown border */
+    --color-border-light: #F0EBE3;    /* Lighter border */
+  }
+
+  /* ===== Dark Theme ===== */
+  :root[data-theme="dark"] {
+    --color-bg-primary: #1A1917;
+    --color-bg-secondary: #23221F;
+    --color-bg-tertiary: #2B2926;
+    --color-text-primary: #EDE8E0;
+    --color-text-secondary: #A9A29A;
+    --color-text-tertiary: #7A746C;
+    --color-accent: #C9A97E;
+    --color-border: #3A3732;
+    --color-border-light: #2C2A26;
+  }
+  :root[data-theme="dark"] .up { color: #6BB277; }
+  :root[data-theme="dark"] .down { color: #D2786E; }
+  :root[data-theme="dark"] .min-nav { background: rgba(26, 25, 23, 0.95); }
+  :root[data-theme="dark"] .min-topbar-cta:hover { color: var(--color-text-primary); border-color: var(--color-text-tertiary); }
+
+  /* ===== Global Styles ===== */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== Navigation ===== */
+  .min-nav {
+    position: static;
+    flex-shrink: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(250, 249, 246, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+  }
+  .min-nav-container {
+    max-width: none;
+    margin: 0 auto;
+    padding: 0.6rem 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .min-logo {
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--color-text-primary);
+  }
+
+  .min-nav-menu {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+  }
+
+  .min-nav-menu a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+  }
+
+  .min-nav-menu a:hover {
+    color: var(--color-text-primary);
+  }
+
+  .min-nav-cta {
+    padding: 0.625rem 1.5rem;
+    border: 1px solid var(--color-accent);
+    background: transparent;
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .min-nav-cta:hover {
+    background: var(--color-accent);
+    color: var(--color-bg-tertiary);
+  }
+
+  /* ===== Hero Section ===== */
+  .min-hero {
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-primary);
+  }
+  .min-hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .min-hero-label {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+  }
+
+  .min-hero-title {
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 100;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--color-text-primary);
+  }
+
+  .min-hero-title-line {
+    display: block;
+  }
+
+  .min-hero-title-bold {
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .min-hero-subtitle {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  .min-hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 5rem;
+  }
+
+  .min-btn-primary {
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--color-text-primary);
+    background: var(--color-text-primary);
+    color: var(--color-bg-tertiary);
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .min-btn-primary:hover {
+    background: transparent;
+    color: var(--color-text-primary);
+    transform: translateY(-2px);
+  }
+
+  .min-btn-secondary {
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .min-btn-secondary:hover {
+    border-color: var(--color-text-primary);
+    color: var(--color-text-primary);
+    transform: translateY(-2px);
+  }
+
+  .min-hero-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-tertiary);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .min-scroll-line {
+    width: 1px;
+    height: 3rem;
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* ===== Stats Section ===== */
+  .min-stats {
+    padding: 4rem 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .min-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .min-stat-card {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .min-stat-number {
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .min-stat-label {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .min-stat-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* ===== Section Shared ===== */
+  .min-section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .min-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .min-section-label {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .min-section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .min-section-desc {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ===== Timeline ===== */
+  .min-timeline-section {
+    padding: 6rem 0;
+    background: var(--color-bg-primary);
+  }
+
+  .min-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .min-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-border);
+  }
+
+  .min-timeline-item {
+    position: relative;
+    padding-left: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .min-timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .min-timeline-marker {
+    position: absolute;
+    left: -0.375rem;
+    top: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 2px solid var(--color-bg-primary);
+  }
+
+  .min-timeline-date {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .min-timeline-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .min-timeline-desc {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ===== Features ===== */
+  .min-features {
+    padding: 6rem 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .min-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+  }
+
+  .min-feature-card {
+    text-align: center;
+  }
+
+  .min-feature-icon {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+    line-height: 1;
+  }
+
+  .min-feature-title {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .min-feature-desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== List View ===== */
+  .min-list-section {
+    padding: 6rem 0;
+    background: var(--color-bg-primary);
+  }
+
+  .min-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+  }
+
+  .min-list-heading {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .min-list {
+    list-style: none;
+  }
+
+  .min-list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .min-list-item:last-child {
+    border-bottom: none;
+  }
+
+  .min-list-check {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /* ===== Loading Animations ===== */
+  .min-loading-section {
+    padding: 6rem 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .min-loading-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+  }
+
+  .min-loading-demo {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+  }
+
+  .min-loading-label {
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .min-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-border);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .min-loading-pulse {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .min-loading-pulse span {
+    width: 10px;
+    height: 10px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+
+  .min-loading-pulse span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .min-loading-pulse span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes pulse {
+    0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+    40% { opacity: 1; transform: scale(1); }
+  }
+
+  .min-loading-progress {
+    width: 100%;
+    height: 2px;
+    background: var(--color-border);
+    overflow: hidden;
+  }
+
+  .min-loading-progress-bar {
+    height: 100%;
+    background: var(--color-accent);
+    animation: progress 2s ease-in-out infinite;
+  }
+
+  @keyframes progress {
+    0% { width: 0%; margin-left: 0%; }
+    50% { width: 50%; margin-left: 25%; }
+    100% { width: 0%; margin-left: 100%; }
+  }
+
+  /* ===== Testimonials ===== */
+  .min-testimonials {
+    padding: 6rem 0;
+    background: var(--color-bg-primary);
+  }
+
+  .min-testimonial-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .min-testimonial-item {
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-tertiary);
+  }
+
+  .min-testimonial-text {
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .min-testimonial-name {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+  }
+
+  .min-testimonial-role {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* ===== Pricing ===== */
+  .min-pricing {
+    padding: 6rem 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .min-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .min-price-card {
+    padding: 3rem 2rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-tertiary);
+    position: relative;
+  }
+
+  .min-price-featured {
+    border-color: var(--color-accent);
+    transform: scale(1.05);
+  }
+
+  .min-price-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.25rem 1rem;
+    background: var(--color-accent);
+    color: var(--color-bg-tertiary);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .min-price-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .min-price-name {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .min-price-amount {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .min-price-currency {
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+  }
+
+  .min-price-value {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    line-height: 1;
+  }
+
+  .min-price-period {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .min-price-features {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .min-price-features li {
+    padding: 0.75rem 0;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .min-price-features li:last-child {
+    border-bottom: none;
+  }
+
+  .min-price-btn {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .min-price-btn:hover {
+    border-color: var(--color-text-primary);
+  }
+
+  .min-price-btn-primary {
+    background: var(--color-text-primary);
+    color: var(--color-bg-tertiary);
+    border-color: var(--color-text-primary);
+  }
+
+  .min-price-btn-primary:hover {
+    background: transparent;
+    color: var(--color-text-primary);
+  }
+
+  /* ===== CTA ===== */
+  .min-cta {
+    padding: 8rem 0;
+    background: var(--color-bg-primary);
+    text-align: center;
+  }
+
+  .min-cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .min-cta-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .min-cta-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .min-cta-btn {
+    padding: 1.25rem 3rem;
+    border: 1px solid var(--color-text-primary);
+    background: var(--color-text-primary);
+    color: var(--color-bg-tertiary);
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-bottom: 1rem;
+  }
+
+  .min-cta-btn:hover {
+    background: transparent;
+    color: var(--color-text-primary);
+    transform: translateY(-2px);
+  }
+
+  .min-cta-note {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+  }
+
+  /* ===== Footer ===== */
+  .min-footer {
+    padding: 4rem 0 2rem;
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .min-footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .min-footer-logo {
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .min-footer-tagline {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .min-footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+  }
+
+  .min-footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .min-footer-heading {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .min-footer-column a {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .min-footer-column a:hover {
+    color: var(--color-text-primary);
+  }
+
+  .min-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .min-footer-copyright {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .min-footer-social {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .min-footer-social a {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .min-footer-social a:hover {
+    color: var(--color-text-primary);
+  }
+
+  /* ===== Desktop (no-scroll) Layout ===== */
+  .min-desktop {
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding: 0.4rem;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    grid-template-rows: 1fr;
+    gap: 0.4rem;
+    align-content: stretch;
+  }
+
+  /* ===== Trading App UI ===== */
+  .min-trade-panel {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+  }
+  .min-panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+  }
+  .min-panel-title {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+  }
+  .min-panel-sub {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+  }
+  .up {
+    color: #4e8555;
+  }
+  .down {
+    color: #c14f46;
+  }
+  .min-price-big {
+    font-size: 1.35rem;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    line-height: 1;
+  }
+  .min-price-change {
+    font-size: 0.8rem;
+  }
+
+  /* Chart */
+  .min-chart {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding: 1.25rem 1.5rem;
+  }
+  .min-chart-canvas {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .min-chart-canvas svg {
+    height: 100%;
+    display: block;
+  }
+  .min-candle-up { fill: var(--color-text-primary); stroke: var(--color-text-primary); }
+  .min-candle-down { fill: transparent; stroke: var(--color-text-primary); }
+  .min-candle-body { stroke-width: 1; }
+  .min-candle-wick { stroke-width: 1.5; }
+  .min-gridline { stroke: var(--color-border-light); stroke-width: 1; }
+  .min-ai-line { fill: none; stroke: var(--color-accent); stroke-width: 1.5; stroke-dasharray: 4 3; }
+  .min-ai-dot { fill: var(--color-accent); }
+  .min-timecursor { stroke: var(--color-text-secondary); stroke-width: 1; stroke-dasharray: 2 2; opacity: 0.75; }
+  .min-time-line { stroke: var(--color-border); stroke-width: 1; opacity: 0.7; }
+  .min-timecursor-dot { fill: var(--color-text-primary); stroke: var(--color-bg-primary); stroke-width: 1; }
+  .min-time-label-box { fill: var(--color-bg-primary); stroke: var(--color-border); stroke-width: 1; }
+  .min-time-label-text { fill: var(--color-text-primary); font-size: 11px; font-family: inherit; }
+  .min-time-tick { stroke: var(--color-border-light); stroke-width: 1; }
+  .min-time-tick-text { fill: var(--color-text-tertiary); font-size: 10px; font-family: inherit; }
+  .min-forecast-zone { fill: var(--color-accent); opacity: 0.07; }
+  .min-pred-summary { display: flex; gap: 1.25rem; }
+  .min-pred-summary > div { text-align: right; }
+  .min-pred-label { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); display: block; }
+  .min-pred-value { font-size: 0.95rem; font-weight: 300; color: var(--color-text-primary); }
+  .min-legend { display: flex; gap: 1rem; flex-shrink: 0; margin-top: 0.6rem; }
+  .min-legend-item { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--color-text-secondary); }
+  .min-legend-candle { width: 8px; height: 12px; background: var(--color-text-primary); border-radius: 1px; }
+  .min-legend-line { width: 18px; border-top: 1.5px dashed var(--color-accent); }
+  .min-timeframe {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+  }
+  .min-tf {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .min-tf.active,
+  .min-tf:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* Order panel */
+  .min-order {
+    grid-column: 2;
+    grid-row: 1;
+    display: none;
+  }
+  .min-order-type {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .min-order-type button {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    transition: all 0.2s ease;
+  }
+  .min-order-type button.active {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: var(--color-bg-secondary);
+  }
+  .min-order-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    padding: 0.35rem 0;
+  }
+  .min-order-row b {
+    color: var(--color-text-primary);
+    font-weight: 400;
+  }
+  .min-order-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+  .min-order-btn {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .min-buy {
+    background: #2f855a;
+    color: #fff;
+  }
+  .min-sell {
+    background: #c0392b;
+    color: #fff;
+  }
+  .min-order-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Watchlist */
+  .min-watchlist {
+    grid-column: 1;
+    grid-row: 1;
+    display: none;
+  }
+  .min-watch-list { flex: 1 1 auto; overflow: hidden; }
+  .min-watch-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+    font-size: 0.8rem;
+  }
+  .min-watch-row:last-child { border-bottom: none; }
+  .min-watch-sym {
+    color: var(--color-text-primary);
+    font-weight: 400;
+  }
+  .min-watch-name {
+    color: var(--color-text-secondary);
+    font-size: 0.72rem;
+  }
+  .min-watch-right { text-align: right; }
+  .min-watch-price { font-size: 0.8rem; }
+
+  /* Positions */
+  .min-positions {
+    display: none;
+  }
+  .min-pos-list { flex: 1 1 auto; overflow: hidden; }
+  .min-pos-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+    font-size: 0.8rem;
+    align-items: center;
+  }
+  .min-pos-row:last-child { border-bottom: none; }
+  .min-pos-sym { color: var(--color-text-primary); font-weight: 400; }
+  .min-pos-size { color: var(--color-text-secondary); }
+  .min-pos-pl { text-align: right; font-size: 0.8rem; }
+
+  /* Order book */
+  .min-orderbook {
+    grid-column: 2;
+    grid-row: 1;
+    display: none;
+  }
+  .min-book {
+    flex: 1 1 auto;
+    overflow: hidden;
+    font-size: 0.78rem;
+  }
+  .min-book-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+  }
+  .min-book-row.ask { background: rgba(192, 57, 43, 0.06); }
+  .min-book-row.bid { background: rgba(47, 133, 90, 0.06); }
+  .min-book-mid {
+    text-align: center;
+    padding: 0.5rem 0;
+    margin: 0.25rem 0;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+  }
+  .min-book-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.25rem;
+  }
+
+  /* Account stats */
+  .min-account {
+    display: none;
+  }
+  .min-account-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .min-acct-card { text-align: left; }
+  .min-acct-label {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.2rem;
+  }
+  .min-acct-value {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--color-text-primary);
+  }
+
+  /* Slim top bar (watchlist + order book) */
+  .min-topbar-ticker { display: none; }
+  .min-watchlist, .min-orderbook {
+    padding: 0.5rem 0.85rem;
+  }
+  .min-watchlist .min-panel-head,
+  .min-orderbook .min-panel-head {
+    margin-bottom: 0.3rem;
+  }
+  .min-watch-row { padding: 0.18rem 0; font-size: 0.72rem; }
+  .min-watch-row:nth-child(n+3) { display: none; }
+  .min-watch-name { display: none; }
+  .min-book { font-size: 0.7rem; }
+  .min-book-row { padding: 0.1rem 0.4rem; }
+  .min-book-mid { font-size: 0.8rem; padding: 0.1rem 0; margin: 0.05rem 0; }
+  .min-book-row:nth-child(n+5) { display: none; }
+
+  /* Order = full right bar */
+  .min-order { padding: 1rem; }
+  .min-order-type { margin-bottom: 0.6rem; }
+  .min-order-btn { margin-top: 0.6rem; padding: 0.65rem; }
+
+  /* Hide landing sections */
+  .min-hero,
+  .min-stats,
+  .min-timeline-section,
+  .min-features,
+  .min-pricing,
+  .min-testimonials,
+  .min-list-section,
+  .min-loading-section,
+  .min-cta {
+    display: none;
+  }
+
+  /* Compact Hero */
+  .min-hero {
+    padding: 0;
+    min-height: 0;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .min-hero-container {
+    padding: 0;
+  }
+  .min-hero-label { margin-bottom: 0.75rem; }
+  .min-hero-title { font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin-bottom: 1rem; }
+  .min-hero-title-line { line-height: 1.1; }
+  .min-hero-subtitle { font-size: 0.9rem; line-height: 1.5; margin: 0 0 1.25rem; max-width: 380px; }
+  .min-hero-actions { margin-bottom: 0; gap: 0.75rem; }
+  .min-btn-primary, .min-btn-secondary { padding: 0.6rem 1.25rem; font-size: 0.8rem; }
+  .min-hero-scroll { display: none; }
+
+  /* Compact Stats */
+  .min-stats {
+    padding: 0;
+    background: transparent;
+    grid-column: 2 / 4;
+    grid-row: 1;
+  }
+  .min-stats-grid { gap: 1rem; }
+  .min-stat-card { padding: 0.75rem 1rem; }
+  .min-stat-number { font-size: 1.75rem; margin-bottom: 0.2rem; }
+  .min-stat-label { margin-bottom: 0.1rem; }
+  .min-stat-desc { font-size: 0.8rem; }
+
+  /* Compact Features */
+  .min-features {
+    padding: 0;
+    background: transparent;
+    grid-column: 1 / 3;
+    grid-row: 2;
+    overflow: hidden;
+  }
+  .min-features-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem 1.5rem; }
+  .min-feature-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .min-feature-title { font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .min-feature-desc { font-size: 0.8rem; line-height: 1.4; }
+
+  /* Compact Pricing */
+  .min-pricing {
+    padding: 0;
+    background: transparent;
+    grid-column: 3;
+    grid-row: 2 / 4;
+  }
+  .min-pricing-grid { grid-template-columns: 1fr; gap: 1rem; max-width: none; }
+  .min-price-card { padding: 1rem; }
+  .min-price-featured { transform: none; }
+  .min-price-badge { display: none; }
+  .min-price-header { margin-bottom: 0.75rem; padding-bottom: 0.75rem; }
+  .min-price-name { font-size: 1rem; margin-bottom: 0.5rem; }
+  .min-price-value { font-size: 1.75rem; }
+  .min-price-currency { font-size: 1.1rem; }
+  .min-price-features li { padding: 0.35rem 0; font-size: 0.8rem; }
+  .min-price-btn { padding: 0.55rem; font-size: 0.8rem; }
+
+  /* Compact Timeline */
+  .min-timeline-section {
+    padding: 0;
+    grid-column: 1;
+    grid-row: 3;
+    overflow: hidden;
+  }
+  .min-timeline-item { padding-bottom: 0.5rem; padding-left: 1.5rem; }
+  .min-timeline-title { font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .min-timeline-desc { font-size: 0.78rem; line-height: 1.3; }
+  .min-timeline-date { margin-bottom: 0.2rem; }
+
+  /* Compact Testimonials */
+  .min-testimonials {
+    padding: 0;
+    background: transparent;
+    grid-column: 2;
+    grid-row: 3;
+    overflow: hidden;
+  }
+  .min-testimonial-list { grid-template-columns: 1fr; gap: 0.6rem; }
+  .min-testimonial-item { padding: 0.75rem; }
+  .min-testimonial-text { font-size: 0.82rem; line-height: 1.4; margin-bottom: 0.5rem; }
+  .min-testimonial-name { font-size: 0.82rem; }
+  .min-testimonial-role { font-size: 0.75rem; }
+
+  /* Shared compact headers */
+  .min-section-header { margin-bottom: 0.6rem; }
+  .min-section-title { font-size: 1.15rem; margin-bottom: 0.4rem; }
+  .min-section-label { margin-bottom: 0.4rem; }
+  .min-section-desc { font-size: 0.85rem; }
+
+  /* Hidden to keep the single-screen layout tidy */
+  .min-list-section,
+  .min-loading-section,
+  .min-cta {
+    display: none;
+  }
+
+  /* Compact Footer */
+  .min-footer {
+    flex-shrink: 0;
+    padding: 0.5rem 1.75rem;
+  }
+  .min-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 0.25rem;
+  }
+  .min-footer-brand { display: none; }
+  .min-footer-links {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+  .min-footer-heading { margin-bottom: 0; }
+  .min-footer-bottom { padding-top: 0.4rem; }
+  .min-footer-copyright { font-size: 0.75rem; }
+
+  /* Clip every panel so the page never scrolls */
+  .min-desktop > section { overflow: hidden; }
+  .min-desktop > .min-trade-panel { overflow: hidden; }
+
+  /* Trading top-bar */
+  .min-topbar {
+    flex-shrink: 0;
+    max-width: none;
+    padding: 0.15rem 1.25rem;
+  }
+  .min-topbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+  .min-topbar-ticker {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    overflow: hidden;
+  }
+  .min-ticker-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+  .min-ticker-sym { color: var(--color-text-primary); }
+  .min-ticker-price { color: var(--color-text-secondary); }
+  .min-balance {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+  .min-balance-item { text-align: right; }
+  .min-balance-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+  }
+  .min-balance-value {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+  }
+  .min-topbar-cta {
+    padding: 0.4rem 1.1rem;
+    background: transparent;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .min-topbar-cta:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-text-tertiary);
+  }
+  .min-topbar-cta:hover { opacity: 0.9; }
+  .min-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .min-theme-toggle:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-text-tertiary);
+  }
+
+  /* Status bar footer */
+  .min-footer { display: none; }
+  .min-footer-grid, .min-footer-bottom { display: none; }
+  .min-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    gap: 1rem;
+  }
+  .min-status-left { display: flex; gap: 1.5rem; }
+  .min-status-dot { color: #2f855a; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .min-nav-menu {
+      display: none;
+    }
+
+    .min-hero {
+      padding-top: 8rem;
+    }
+
+    .min-hero-title {
+      font-size: 3rem;
+    }
+
+    .min-stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .min-footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .min-footer-bottom {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  </style>
+</head>
+<body class="preview-fullscreen">
+
+  <!-- Trading Top Bar -->
+  <nav class="min-nav">
+    <div class="min-nav-container min-topbar">
+      <div class="min-topbar-row">
+        <div style="display:flex;align-items:center;gap:1.75rem;">
+          <div class="min-logo">Lujke</div>
+          <ul class="min-nav-menu">
+            <li><a href="javascript:void(0)" class="active" style="color:var(--color-text-primary)">Predict</a></li>
+            <li><a href="javascript:void(0)">Markets</a></li>
+          </ul>
+        </div>
+        <div class="min-topbar-ticker">
+          <div class="min-ticker-item"><span class="min-ticker-sym">BTC</span><span class="min-ticker-price up">+2.4%</span></div>
+          <div class="min-ticker-item"><span class="min-ticker-sym">ETH</span><span class="min-ticker-price down">-1.1%</span></div>
+          <div class="min-ticker-item"><span class="min-ticker-sym">AAPL</span><span class="min-ticker-price up">+0.8%</span></div>
+          <div class="min-ticker-item"><span class="min-ticker-sym">EURUSD</span><span class="min-ticker-price up">+0.3%</span></div>
+        </div>
+        <div class="min-balance">
+          <div class="min-balance-item">
+            <div class="min-balance-label">Equity</div>
+            <div class="min-balance-value">$50,424.50</div>
+          </div>
+          <div class="min-balance-item">
+            <div class="min-balance-label">Balance</div>
+            <div class="min-balance-value">$48,250.00</div>
+          </div>
+          <div class="min-balance-item">
+            <div class="min-balance-label">P&amp;L</div>
+            <div class="min-balance-value up">+298.40</div>
+          </div>
+          <div class="min-balance-item">
+            <div class="min-balance-label">Margin</div>
+            <div class="min-balance-value">$3,175.50</div>
+          </div>
+        </div>
+        <button class="min-theme-toggle" id="min-theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9790;</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="min-desktop">
+
+  <!-- Chart Panel -->
+  <section class="min-trade-panel min-chart">
+    <div class="min-panel-head">
+      <div>
+        <span class="min-panel-title">AAPL / USD</span>
+        <span class="min-panel-sub">Market · AI Forecast · 1D</span>
+      </div>
+      <div class="min-pred-summary">
+        <div><span class="min-pred-label">Actual</span><span class="min-pred-value">$227.45</span></div>
+        <div><span class="min-pred-label">Predicted</span><span class="min-pred-value">$231.10</span></div>
+        <div><span class="min-pred-label">Accuracy</span><span class="min-pred-value">92%</span></div>
+      </div>
+    </div>
+    <div class="min-legend">
+      <span class="min-legend-item"><span class="min-legend-candle"></span>Actual market</span>
+      <span class="min-legend-item"><span class="min-legend-line"></span>AI forecast (next)</span>
+    </div>
+    <div class="min-chart-canvas">
+      <svg id="min-chart-svg" viewBox="0 0 1000 300" preserveAspectRatio="none">
+        <line x1="0" y1="75" x2="1000" y2="75" stroke="var(--color-border-light)" stroke-width="1"/>
+        <line x1="0" y1="150" x2="1000" y2="150" stroke="var(--color-border-light)" stroke-width="1"/>
+        <line x1="0" y1="225" x2="1000" y2="225" stroke="var(--color-border-light)" stroke-width="1"/>
+      </svg>
+
+        <!-- Candle 1: up -->
+        <line class="min-candle-wick min-candle-up" x1="25" y1="215" x2="25" y2="228"/>
+        <rect class="min-candle-body min-candle-up" x="14" y="218" width="22" height="4"/>
+        <!-- Candle 2: up -->
+        <line class="min-candle-wick min-candle-up" x1="80" y1="210" x2="80" y2="220"/>
+        <rect class="min-candle-body min-candle-up" x="69" y="212" width="22" height="8"/>
+        <!-- Candle 3: down -->
+        <line class="min-candle-wick min-candle-down" x1="135" y1="208" x2="135" y2="222"/>
+        <rect class="min-candle-body min-candle-down" x="124" y="212" width="22" height="8"/>
+        <!-- Candle 4: up -->
+        <line class="min-candle-wick min-candle-up" x1="190" y1="200" x2="190" y2="216"/>
+        <rect class="min-candle-body min-candle-up" x="179" y="204" width="22" height="12"/>
+        <!-- Candle 5: up -->
+        <line class="min-candle-wick min-candle-up" x1="245" y1="192" x2="245" y2="208"/>
+        <rect class="min-candle-body min-candle-up" x="234" y="196" width="22" height="10"/>
+        <!-- Candle 6: down -->
+        <line class="min-candle-wick min-candle-down" x1="300" y1="190" x2="300" y2="205"/>
+        <rect class="min-candle-body min-candle-down" x="289" y="196" width="22" height="6"/>
+        <!-- Candle 7: up -->
+        <line class="min-candle-wick min-candle-up" x1="355" y1="180" x2="355" y2="200"/>
+        <rect class="min-candle-body min-candle-up" x="344" y="186" width="22" height="14"/>
+        <!-- Candle 8: up -->
+        <line class="min-candle-wick min-candle-up" x1="410" y1="172" x2="410" y2="190"/>
+        <rect class="min-candle-body min-candle-up" x="399" y="178" width="22" height="12"/>
+        <!-- Candle 9: down -->
+        <line class="min-candle-wick min-candle-down" x1="465" y1="168" x2="465" y2="192"/>
+        <rect class="min-candle-body min-candle-down" x="454" y="178" width="22" height="12"/>
+        <!-- Candle 10: up -->
+        <line class="min-candle-wick min-candle-up" x1="520" y1="160" x2="520" y2="185"/>
+        <rect class="min-candle-body min-candle-up" x="509" y="168" width="22" height="17"/>
+        <!-- Candle 11: up -->
+        <line class="min-candle-wick min-candle-up" x1="575" y1="150" x2="575" y2="172"/>
+        <rect class="min-candle-body min-candle-up" x="564" y="156" width="22" height="16"/>
+        <!-- Candle 12: down -->
+        <line class="min-candle-wick min-candle-down" x1="630" y1="148" x2="630" y2="175"/>
+        <rect class="min-candle-body min-candle-down" x="619" y="156" width="22" height="14"/>
+        <!-- Candle 13: up -->
+        <line class="min-candle-wick min-candle-up" x1="685" y1="140" x2="685" y2="168"/>
+        <rect class="min-candle-body min-candle-up" x="674" y="148" width="22" height="20"/>
+        <!-- Candle 14: up -->
+        <line class="min-candle-wick min-candle-up" x1="740" y1="130" x2="740" y2="152"/>
+        <rect class="min-candle-body min-candle-up" x="729" y="136" width="22" height="16"/>
+        <!-- Candle 15: down -->
+        <line class="min-candle-wick min-candle-down" x1="795" y1="128" x2="795" y2="155"/>
+        <rect class="min-candle-body min-candle-down" x="784" y="136" width="22" height="14"/>
+        <!-- Candle 16: up -->
+        <line class="min-candle-wick min-candle-up" x1="850" y1="118" x2="850" y2="148"/>
+        <rect class="min-candle-body min-candle-up" x="839" y="128" width="22" height="20"/>
+        <!-- Candle 17: up -->
+        <line class="min-candle-wick min-candle-up" x1="905" y1="105" x2="905" y2="135"/>
+        <rect class="min-candle-body min-candle-up" x="894" y="112" width="22" height="23"/>
+        <!-- Candle 18: up -->
+        <line class="min-candle-wick min-candle-up" x1="960" y1="95" x2="960" y2="120"/>
+        <rect class="min-candle-body min-candle-up" x="949" y="100" width="22" height="20"/>
+      </svg>
+    </div>
+    <div class="min-timeframe">
+      <span class="min-tf">1m</span>
+      <span class="min-tf">15m</span>
+      <span class="min-tf active">1D</span>
+      <span class="min-tf">1W</span>
+      <span class="min-tf">1M</span>
+      <span class="min-tf">1Y</span>
+    </div>
+  </section>
+
+  <!-- Order Panel -->
+  <section class="min-trade-panel min-order">
+    <div class="min-panel-head">
+      <span class="min-panel-title">Order</span>
+      <span class="min-panel-sub">Limit</span>
+    </div>
+    <div class="min-order-type">
+      <button class="active">Buy</button>
+      <button>Sell</button>
+    </div>
+    <div class="min-order-row"><span>Price</span><b>$227.45</b></div>
+    <input class="min-order-input" type="text" value="227.45"/>
+    <div class="min-order-row"><span>Quantity</span><b>10.0000</b></div>
+    <input class="min-order-input" type="text" value="10.0000"/>
+    <div class="min-order-row"><span>Amount</span><b>$2,274.50</b></div>
+    <button class="min-order-btn min-buy">Buy AAPL</button>
+  </section>
+
+  <!-- Watchlist -->
+  <section class="min-trade-panel min-watchlist">
+    <div class="min-panel-head">
+      <span class="min-panel-title">Watchlist</span>
+      <span class="min-panel-sub">Live</span>
+    </div>
+    <div class="min-watch-list">
+      <div class="min-watch-row">
+        <div><div class="min-watch-sym">AAPL</div><div class="min-watch-name">Apple</div></div>
+        <div class="min-watch-right"><div class="min-watch-price">227.45</div><div class="min-price-change up">+2.4%</div></div>
+      </div>
+      <div class="min-watch-row">
+        <div><div class="min-watch-sym">TSLA</div><div class="min-watch-name">Tesla</div></div>
+        <div class="min-watch-right"><div class="min-watch-price">431.20</div><div class="min-price-change down">-1.8%</div></div>
+      </div>
+      <div class="min-watch-row">
+        <div><div class="min-watch-sym">NVDA</div><div class="min-watch-name">NVIDIA</div></div>
+        <div class="min-watch-right"><div class="min-watch-price">1,284.10</div><div class="min-price-change up">+4.1%</div></div>
+      </div>
+      <div class="min-watch-row">
+        <div><div class="min-watch-sym">BTC</div><div class="min-watch-name">Bitcoin</div></div>
+        <div class="min-watch-right"><div class="min-watch-price">67,450</div><div class="min-price-change up">+2.9%</div></div>
+      </div>
+      <div class="min-watch-row">
+        <div><div class="min-watch-sym">EURUSD</div><div class="min-watch-name">Euro</div></div>
+        <div class="min-watch-right"><div class="min-watch-price">1.0825</div><div class="min-price-change down">-0.3%</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Positions -->
+  <section class="min-trade-panel min-positions">
+    <div class="min-panel-head">
+      <span class="min-panel-title">Positions</span>
+      <span class="min-panel-sub">3 open</span>
+    </div>
+    <div class="min-pos-list">
+      <div class="min-pos-row">
+        <span class="min-pos-sym">AAPL</span>
+        <span class="min-pos-size">10 lots</span>
+        <span class="min-pos-pl up">+124.50</span>
+      </div>
+      <div class="min-pos-row">
+        <span class="min-pos-sym">TSLA</span>
+        <span class="min-pos-size">5 lots</span>
+        <span class="min-pos-pl down">-38.20</span>
+      </div>
+      <div class="min-pos-row">
+        <span class="min-pos-sym">NVDA</span>
+        <span class="min-pos-size">2 lots</span>
+        <span class="min-pos-pl up">+212.00</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Book -->
+  <section class="min-trade-panel min-orderbook">
+    <div class="min-panel-head">
+      <span class="min-panel-title">Order Book</span>
+      <span class="min-panel-sub">AAPL/USD</span>
+    </div>
+    <div class="min-book">
+      <div class="min-book-row ask"><span>227.50</span><span>120.4</span></div>
+      <div class="min-book-row ask"><span>227.48</span><span>84.2</span></div>
+      <div class="min-book-row ask"><span>227.46</span><span>52.1</span></div>
+      <div class="min-book-mid">227.45</div>
+      <div class="min-book-row bid"><span>227.44</span><span>96.3</span></div>
+      <div class="min-book-row bid"><span>227.42</span><span>61.0</span></div>
+      <div class="min-book-row bid"><span>227.40</span><span>145.8</span></div>
+    </div>
+  </section>
+
+  <!-- Account Stats -->
+  <section class="min-trade-panel min-account">
+    <div class="min-panel-head">
+      <span class="min-panel-title">Account</span>
+      <span class="min-panel-sub">Demo</span>
+    </div>
+    <div class="min-account-grid">
+      <div class="min-acct-card">
+        <div class="min-acct-label">Equity</div>
+        <div class="min-acct-value">$50,424.50</div>
+      </div>
+      <div class="min-acct-card">
+        <div class="min-acct-label">Balance</div>
+        <div class="min-acct-value">$48,250.00</div>
+      </div>
+      <div class="min-acct-card">
+        <div class="min-acct-label">P&amp;L (day)</div>
+        <div class="min-acct-value up">+298.40</div>
+      </div>
+      <div class="min-acct-card">
+        <div class="min-acct-label">Margin</div>
+        <div class="min-acct-value">$3,175.50</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="min-hero">
+    <div class="min-hero-container">
+      <div class="min-hero-label" data-i18n="saasLanding.hero.label">>Hero</div>
+      <h1 class="min-hero-title">
+        <span class="min-hero-title-line" data-i18n="saasLanding.hero.title1">Less Complexity</span>
+        <span class="min-hero-title-line min-hero-title-bold" data-i18n="saasLanding.hero.title2">More Focus</span>
+      </h1>
+      <p class="min-hero-subtitle">
+        <span data-i18n="saasLanding.hero.subtitle">>Sub</span>
+      </p>
+      <div class="min-hero-actions">
+        <button class="min-btn-primary" data-i18n="saasLanding.cta.startFree">Start Free</button>
+        <button class="min-btn-secondary" data-i18n="saasLanding.cta.watchDemo">Watch Demo →</button>
+      </div>
+      <div class="min-hero-scroll">
+        <div class="min-scroll-line"></div>
+        <span data-i18n="common.scroll">Scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="min-stats">
+    <div class="min-section-container">
+      <div class="min-stats-grid">
+        <div class="min-stat-card">
+          <div class="min-stat-number">50K+</div>
+          <div class="min-stat-label" data-i18n="saasLanding.stats.activeUsers">Active Users</div>
+          <div class="min-stat-desc" data-i18n="saasLanding.stats.worldwide">Worldwide</div>
+        </div>
+        <div class="min-stat-card">
+          <div class="min-stat-number">99.9%</div>
+          <div class="min-stat-label" data-i18n="saasLanding.stats.uptime">Uptime</div>
+          <div class="min-stat-desc" data-i18n="saasLanding.stats.last12Months">Last 12 months</div>
+        </div>
+        <div class="min-stat-card">
+          <div class="min-stat-number">4.9/5</div>
+          <div class="min-stat-label" data-i18n="saasLanding.stats.rating">Rating</div>
+          <div class="min-stat-desc" data-i18n="saasLanding.stats.reviews">From 2,000+ reviews</div>
+        </div>
+        <div class="min-stat-card">
+          <div class="min-stat-number">24/7</div>
+          <div class="min-stat-label" data-i18n="saasLanding.stats.support">Support</div>
+          <div class="min-stat-desc" data-i18n="saasLanding.stats.alwaysAvailable">Always available</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="min-timeline-section">
+    <div class="min-section-container">
+      <div class="min-section-header">
+        <span class="min-section-label" data-i18n="saasLanding.timeline.label">>Timeline</span>
+        <h2 class="min-section-title" data-i18n="saasLanding.timeline.title">>Timeline</h2>
+      </div>
+      <div class="min-timeline">
+        <div class="min-timeline-item">
+          <div class="min-timeline-marker"></div>
+          <div class="min-timeline-content">
+            <div class="min-timeline-date" data-i18n="saasLanding.timeline.q1Date">Q1 2024</div>
+            <h3 class="min-timeline-title" data-i18n="saasLanding.timeline.q1Title">>Q1</h3>
+            <p class="min-timeline-desc" data-i18n="saasLanding.timeline.q1Desc">Initial release with core features and workspace management.</p>
+          </div>
+        </div>
+        <div class="min-timeline-item">
+          <div class="min-timeline-marker"></div>
+          <div class="min-timeline-content">
+            <div class="min-timeline-date" data-i18n="saasLanding.timeline.q2Date">Q2 2024</div>
+            <h3 class="min-timeline-title" data-i18n="saasLanding.timeline.q2Title">>Q2</h3>
+            <p class="min-timeline-desc" data-i18n="saasLanding.timeline.q2Desc">Real-time collaboration, comments, and team features.</p>
+          </div>
+        </div>
+        <div class="min-timeline-item">
+          <div class="min-timeline-marker"></div>
+          <div class="min-timeline-content">
+            <div class="min-timeline-date" data-i18n="saasLanding.timeline.q3Date">Q3 2024</div>
+            <h3 class="min-timeline-title" data-i18n="saasLanding.timeline.q3Title">>Q3</h3>
+            <p class="min-timeline-desc" data-i18n="saasLanding.timeline.q3Desc">Developer API and third-party app integrations.</p>
+          </div>
+        </div>
+        <div class="min-timeline-item">
+          <div class="min-timeline-marker"></div>
+          <div class="min-timeline-content">
+            <div class="min-timeline-date" data-i18n="saasLanding.timeline.q4Date">Q4 2024</div>
+            <h3 class="min-timeline-title" data-i18n="saasLanding.timeline.q4Title">>Q4</h3>
+            <p class="min-timeline-desc" data-i18n="saasLanding.timeline.q4Desc">Smart suggestions and automated workflow optimization.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="min-features">
+    <div class="min-section-container">
+      <div class="min-section-header">
+        <span class="min-section-label" data-i18n="saasLanding.features.label">>Features</span>
+        <h2 class="min-section-title" data-i18n="saasLanding.features.title">>Features</h2>
+      </div>
+      <div class="min-features-grid">
+        <div class="min-feature-card">
+          <div class="min-feature-icon">—</div>
+          <h3 class="min-feature-title" data-i18n="saasLanding.features.feature1.title">>Feature1</h3>
+          <p class="min-feature-desc" data-i18n="saasLanding.features.feature1.desc">Distraction-free workspace focused on what matters most.</p>
+        </div>
+        <div class="min-feature-card">
+          <div class="min-feature-icon">○</div>
+          <h3 class="min-feature-title" data-i18n="saasLanding.features.feature2.title">>Feature2</h3>
+          <p class="min-feature-desc" data-i18n="saasLanding.features.feature2.desc">Lightning-fast response times and instant synchronization.</p>
+        </div>
+        <div class="min-feature-card">
+          <div class="min-feature-icon">□</div>
+          <h3 class="min-feature-title" data-i18n="saasLanding.features.feature3.title">>Feature3</h3>
+          <p class="min-feature-desc" data-i18n="saasLanding.features.feature3.desc">End-to-end encryption keeps your data private and safe.</p>
+        </div>
+        <div class="min-feature-card">
+          <div class="min-feature-icon">△</div>
+          <h3 class="min-feature-title" data-i18n="saasLanding.features.feature4.title">>Feature4</h3>
+          <p class="min-feature-desc" data-i18n="saasLanding.features.feature4.desc">Work together seamlessly with real-time updates.</p>
+        </div>
+        <div class="min-feature-card">
+          <div class="min-feature-icon">◇</div>
+          <h3 class="min-feature-title" data-i18n="saasLanding.features.feature5.title">>Feature5</h3>
+          <p class="min-feature-desc" data-i18n="saasLanding.features.feature5.desc">Access your workspace from any device, anywhere.</p>
+        </div>
+        <div class="min-feature-card">
+          <div class="min-feature-icon">▽</div>
+          <h3 class="min-feature-title" data-i18n="saasLanding.features.feature6.title">>Feature6</h3>
+          <p class="min-feature-desc" data-i18n="saasLanding.features.feature6.desc">Automate repetitive tasks and boost productivity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- List View Section -->
+  <section class="min-list-section">
+    <div class="min-section-container">
+      <div class="min-section-header">
+        <span class="min-section-label" data-i18n="saasLanding.listView.label">>List View</span>
+        <h2 class="min-section-title" data-i18n="saasLanding.listView.title">>List View</h2>
+      </div>
+      <div class="min-list-grid">
+        <div class="min-list-column">
+          <h3 class="min-list-heading" data-i18n="saasLanding.listView.workspace">Workspace</h3>
+          <ul class="min-list">
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.unlimitedProjects">Unlimited projects</span>
+            </li>
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.customTemplates">Custom templates</span>
+            </li>
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.folderOrganization">Folder organization</span>
+            </li>
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.quickSearch">Quick search</span>
+            </li>
+          </ul>
+        </div>
+        <div class="min-list-column">
+          <h3 class="min-list-heading" data-i18n="saasLanding.listView.collaboration">Collaboration</h3>
+          <ul class="min-list">
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.realtimeSync">Real-time sync</span>
+            </li>
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.teamComments">Team comments</span>
+            </li>
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.sharePermissions">Share permissions</span>
+            </li>
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.activityTracking">Activity tracking</span>
+            </li>
+          </ul>
+        </div>
+        <div class="min-list-column">
+          <h3 class="min-list-heading" data-i18n="saasLanding.listView.integration">Integration</h3>
+          <ul class="min-list">
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.restApi">REST API access</span>
+            </li>
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.webhooks">Webhooks support</span>
+            </li>
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.thirdPartyApps">Third-party apps</span>
+            </li>
+            <li class="min-list-item">
+              <span class="min-list-check">✓</span>
+              <span data-i18n="saasLanding.listView.exportData">Export data</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loading Animations Section -->
+  <section class="min-loading-section">
+    <div class="min-section-container">
+      <div class="min-section-header">
+        <span class="min-section-label" data-i18n="saasLanding.loading.label">>Loading</span>
+        <h2 class="min-section-title" data-i18n="saasLanding.loading.title">>Loading</h2>
+        <p class="min-section-desc" data-i18n="saasLanding.loading.desc">Minimal, elegant loading indicators</p>
+      </div>
+      <div class="min-loading-grid">
+        <div class="min-loading-demo">
+          <div class="min-loading-label" data-i18n="saasLanding.loading.spinner">Spinner</div>
+          <div class="min-loading-spinner"></div>
+        </div>
+        <div class="min-loading-demo">
+          <div class="min-loading-label" data-i18n="saasLanding.loading.pulse">Pulse</div>
+          <div class="min-loading-pulse">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="min-loading-demo">
+          <div class="min-loading-label" data-i18n="saasLanding.loading.progress">Progress</div>
+          <div class="min-loading-progress">
+            <div class="min-loading-progress-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="min-testimonials">
+    <div class="min-section-container">
+      <div class="min-section-header">
+        <span class="min-section-label" data-i18n="saasLanding.testimonials.label">>Testimonials</span>
+        <h2 class="min-section-title" data-i18n="saasLanding.testimonials.title">>Testimonials</h2>
+      </div>
+      <div class="min-testimonial-list">
+        <div class="min-testimonial-item">
+          <p class="min-testimonial-text" data-i18n="saasLanding.testimonials.testimonial1.text">"The cleanest workspace tool I've ever used. It just works."</p>
+          <div class="min-testimonial-author">
+            <div class="min-testimonial-name" data-i18n="saasLanding.testimonials.testimonial1.author">Sarah Chen</div>
+            <div class="min-testimonial-role" data-i18n="saasLanding.testimonials.testimonial1.role">Product Designer, Stripe</div>
+          </div>
+        </div>
+        <div class="min-testimonial-item">
+          <p class="min-testimonial-text" data-i18n="saasLanding.testimonials.testimonial2.text">"Finally, a tool that doesn't get in the way. Pure productivity."</p>
+          <div class="min-testimonial-author">
+            <div class="min-testimonial-name" data-i18n="saasLanding.testimonials.testimonial2.author">Marcus Rivera</div>
+            <div class="min-testimonial-role" data-i18n="saasLanding.testimonials.testimonial2.role">Engineering Lead, Notion</div>
+          </div>
+        </div>
+        <div class="min-testimonial-item">
+          <p class="min-testimonial-text" data-i18n="saasLanding.testimonials.testimonial3.text">"Minimalism done right. Every pixel has a purpose."</p>
+          <div class="min-testimonial-author">
+            <div class="min-testimonial-name" data-i18n="saasLanding.testimonials.testimonial3.author">Emma Thompson</div>
+            <div class="min-testimonial-role" data-i18n="saasLanding.testimonials.testimonial3.role">CEO, Linear</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="min-pricing">
+    <div class="min-section-container">
+      <div class="min-section-header">
+        <span class="min-section-label" data-i18n="saasLanding.pricing.label">>Pricing</span>
+        <h2 class="min-section-title" data-i18n="saasLanding.pricing.title">>Pricing</h2>
+      </div>
+      <div class="min-pricing-grid">
+        <div class="min-price-card">
+          <div class="min-price-header">
+            <div class="min-price-name" data-i18n="saasLanding.pricing.free.name">>Free</div>
+            <div class="min-price-amount">
+              <span class="min-price-currency">$</span>
+              <span class="min-price-value">0</span>
+              <span class="min-price-period" data-i18n="saasLanding.pricing.period">/mo</span>
+            </div>
+          </div>
+          <ul class="min-price-features">
+            <li data-i18n="saasLanding.pricing.free.feature1">3 Projects</li>
+            <li data-i18n="saasLanding.pricing.free.feature2">Basic features</li>
+            <li data-i18n="saasLanding.pricing.free.feature3">Community support</li>
+          </ul>
+          <button class="min-price-btn" data-i18n="saasLanding.pricing.free.getStarted">Get Started</button>
+        </div>
+        <div class="min-price-card min-price-featured">
+          <div class="min-price-badge" data-i18n="saasLanding.pricing.pro.badge">POPULAR</div>
+          <div class="min-price-header">
+            <div class="min-price-name" data-i18n="saasLanding.pricing.pro.name">>Pro</div>
+            <div class="min-price-amount">
+              <span class="min-price-currency">$</span>
+              <span class="min-price-value">12</span>
+              <span class="min-price-period" data-i18n="saasLanding.pricing.period">/mo</span>
+            </div>
+          </div>
+          <ul class="min-price-features">
+            <li data-i18n="saasLanding.pricing.pro.feature1">Unlimited projects</li>
+            <li data-i18n="saasLanding.pricing.pro.feature2">All features</li>
+            <li data-i18n="saasLanding.pricing.pro.feature3">Priority support</li>
+            <li data-i18n="saasLanding.pricing.pro.feature4">API access</li>
+          </ul>
+          <button class="min-price-btn min-price-btn-primary" data-i18n="saasLanding.pricing.pro.startTrial">Start Trial</button>
+        </div>
+        <div class="min-price-card">
+          <div class="min-price-header">
+            <div class="min-price-name" data-i18n="saasLanding.pricing.team.name">>Team</div>
+            <div class="min-price-amount">
+              <span class="min-price-currency">$</span>
+              <span class="min-price-value">29</span>
+              <span class="min-price-period" data-i18n="saasLanding.pricing.period">/mo</span>
+            </div>
+          </div>
+          <ul class="min-price-features">
+            <li data-i18n="saasLanding.pricing.team.feature1">Everything in Pro</li>
+            <li data-i18n="saasLanding.pricing.team.feature2">Team collaboration</li>
+            <li data-i18n="saasLanding.pricing.team.feature3">Advanced analytics</li>
+            <li data-i18n="saasLanding.pricing.team.feature4">Custom integrations</li>
+          </ul>
+          <button class="min-price-btn" data-i18n="saasLanding.pricing.team.contactSales">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="min-cta">
+    <div class="min-section-container">
+      <div class="min-cta-content">
+        <h2 class="min-cta-title" data-i18n="saasLanding.cta.title">>Cta</h2>
+        <p class="min-cta-subtitle" data-i18n="saasLanding.cta.subtitle">>Sub</p>
+        <button class="min-cta-btn" data-i18n="saasLanding.cta.startFreeTrial">Start Free Trial</button>
+        <p class="min-cta-note" data-i18n="saasLanding.cta.note">No credit card required • 14-day trial</p>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <!-- Status Bar -->
+  <footer class="min-footer">
+    <div class="min-statusbar">
+      <div class="min-status-left">
+        <span><span class="min-status-dot">●</span> Markets open</span>
+        <span>Servers: 142ms</span>
+        <span>Session: Demo</span>
+      </div>
+      <div class="min-status-left">
+        <span>© 2025 TRADR</span>
+      </div>
+    </div>
+  </footer>
+  <div class="min-footer-hidden">
+  <footer class="min-footer">
+    <div class="min-section-container">
+      <div class="min-footer-grid">
+        <div class="min-footer-brand">
+          <div class="min-footer-logo">FOCUS</div>
+          <p class="min-footer-tagline" data-i18n="saasLanding.footer.tagline">Less complexity. More focus.</p>
+        </div>
+        <div class="min-footer-links">
+          <div class="min-footer-column">
+            <div class="min-footer-heading" data-i18n="saasLanding.footer.product">Product</div>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.features">Features</a>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.pricing">Pricing</a>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.roadmap">Roadmap</a>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.changelog">Changelog</a>
+          </div>
+          <div class="min-footer-column">
+            <div class="min-footer-heading" data-i18n="saasLanding.footer.company">Company</div>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.about">About</a>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.blog">Blog</a>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.careers">Careers</a>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.contact">Contact</a>
+          </div>
+          <div class="min-footer-column">
+            <div class="min-footer-heading" data-i18n="saasLanding.footer.resources">Resources</div>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.documentation">Documentation</a>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.apiReference">API Reference</a>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.support">Support</a>
+            <a href="javascript:void(0)" data-i18n="saasLanding.footer.community">Community</a>
+          </div>
+        </div>
+      </div>
+      <div class="min-footer-bottom">
+        <div class="min-footer-copyright" data-i18n="saasLanding.footer.copyright">© 2025 Focus. All rights reserved.</div>
+        <div class="min-footer-social">
+          <a href="javascript:void(0)" data-i18n="saasLanding.footer.twitter">Twitter</a>
+          <a href="javascript:void(0)" data-i18n="saasLanding.footer.linkedin">LinkedIn</a>
+          <a href="javascript:void(0)" data-i18n="saasLanding.footer.github">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<div style="display:none">
+## Color Scheme
+
+Color scheme: Neon pink-purple (#FF71CE), Neon blue (#01CDFE), Neon purple (#B967FF), Dark purple background (#2E1F47)
+
+
+Primary warm off-white (#FAF9F7), dark text (#1F1F1F), neutral gray (#8B8B8B), light gray background (#F5F5F5), functional black (#000000)
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('min-theme-toggle');
+    function apply(theme) {
+      root.setAttribute('data-theme', theme);
+      if (btn) btn.textContent = theme === 'dark' ? '\u2600' : '\u263e';
+      try { localStorage.setItem('min-theme', theme); } catch (e) {}
+    }
+    var saved = 'light';
+    try { saved = localStorage.getItem('min-theme') || 'light'; } catch (e) {}
+    apply(saved);
+    if (btn) {
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        apply(next);
+      });
+    }
+  })();
+</script>
+
+<script>
+  (function () {
+    var svg = document.getElementById('min-chart-svg');
+    if (!svg) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var slot = 22;                  // px per bar slot (fixed -> enables horizontal scroll)
+    var historyCount = 120;        // actual market bars (scrollable past)
+    var predCount = 24;           // AI forecast bars (~15% of the timeline)
+    var total = historyCount + predCount;
+    var W = total * slot;         // intrinsic width -> wider than the panel -> horizontal scroll
+    var H = 300;
+    var bodyW = slot * 0.55;       // body width -> readable alongside the prediction line
+    var top = 40, bottom = 260;    // price band in px
+
+    // Start clean: clear any static candles/gridlines so we own the canvas
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    // Render at a fixed pixel width (wider than the panel) so the timeline scrolls
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('width', W);
+
+    // gridlines
+    [75, 150, 225].forEach(function (gy) {
+      var g = document.createElementNS(NS, 'line');
+      g.setAttribute('x1', 0); g.setAttribute('x2', W);
+      g.setAttribute('y1', gy); g.setAttribute('y2', gy);
+      g.setAttribute('class', 'min-gridline');
+      svg.appendChild(g);
+    });
+
+    // ---- Layout: long actual market (scrollable) + a forecast tail (~15% of timeline) ----
+    var actualCount = historyCount;              // market bars (left / scrollable past)
+    var boundaryX = actualCount * slot;        // x where the market ends and the forecast begins
+
+    // ---- Actual market series (volatile OHLC), covering the left ~85% ----
+    var price = 200, momentum = 0, actual = [];
+    for (var i = 0; i < actualCount; i++) {
+      var open = price;
+      var oscillation = Math.sin(i / 3) * 8;
+      var impulse = (Math.random() - 0.5) * 22;
+      momentum = momentum * 0.55 + impulse;
+      var close = open + momentum + oscillation;
+      var wickRange = Math.abs(close - open) * 0.6 + Math.random() * 9 + 3;
+      var high = Math.max(open, close) + Math.random() * wickRange;
+      var low = Math.min(open, close) - Math.random() * wickRange;
+      actual.push({ open: open, close: close, high: high, low: low });
+      price = close;
+    }
+
+    // ---- AI forecast series (predicted close path), covering the right ~15% ----
+    // It starts exactly at the last actual close (the "now" point) and projects
+    // forward, so the forecast reads as what comes next rather than an overlay.
+    var forecast = [], pv = actual[actualCount - 1].close;
+    for (var k = 0; k < predCount; k++) {
+      var t = actualCount + k;
+      var momentumCarry = momentum * 0.4;
+      var oscillationF = Math.sin(t / 3) * 5;
+      var noise = (Math.random() - 0.5) * 7;
+      pv = pv + momentumCarry + oscillationF + noise;
+      forecast.push(pv);
+    }
+
+    // shared price scale across actual candles + forecast path
+    var lows = actual.map(function (d) { return d.low; });
+    var highs = actual.map(function (d) { return d.high; });
+    var minP = Math.min.apply(null, lows.concat(highs).concat(forecast));
+    var maxP = Math.max.apply(null, lows.concat(highs).concat(forecast));
+    function y(v) { return top + (1 - (v - minP) / (maxP - minP)) * (bottom - top); }
+
+    // shade the forecast zone so it reads as "predicted", not "actual"
+    var zone = document.createElementNS(NS, 'rect');
+    zone.setAttribute('class', 'min-forecast-zone');
+    zone.setAttribute('x', boundaryX); zone.setAttribute('y', top);
+    zone.setAttribute('width', W - boundaryX); zone.setAttribute('height', bottom - top);
+    svg.appendChild(zone);
+
+    // Actual market candles (solid body + wick, monochrome)
+    actual.forEach(function (d, idx) {
+      var cx = idx * slot + slot / 2;
+      var up = d.close >= d.open;
+      var cls = 'min-candle-' + (up ? 'up' : 'down');
+      var wick = document.createElementNS(NS, 'line');
+      wick.setAttribute('class', 'min-candle-wick ' + cls);
+      wick.setAttribute('x1', cx); wick.setAttribute('x2', cx);
+      wick.setAttribute('y1', y(d.high)); wick.setAttribute('y2', y(d.low));
+      svg.appendChild(wick);
+      var yTop = y(Math.max(d.open, d.close));
+      var yBot = y(Math.min(d.open, d.close));
+      var h = Math.max(1.5, yBot - yTop);
+      var body = document.createElementNS(NS, 'rect');
+      body.setAttribute('class', 'min-candle-body ' + cls);
+      body.setAttribute('x', cx - bodyW / 2);
+      body.setAttribute('y', yTop);
+      body.setAttribute('width', bodyW);
+      body.setAttribute('height', h);
+      svg.appendChild(body);
+    });
+
+    // AI forecast line (dashed, accent): begins at the last actual close, then projects forward
+    var lastClose = actual[actualCount - 1].close;
+    var linePts = [];
+    linePts.push((actualCount - 1) * slot + slot / 2 + ',' + y(lastClose));
+    forecast.forEach(function (v, k) {
+      var idx = actualCount + k;
+      linePts.push(idx * slot + slot / 2 + ',' + y(v));
+    });
+    var line = document.createElementNS(NS, 'polyline');
+    line.setAttribute('class', 'min-ai-line');
+    line.setAttribute('points', linePts.join(' '));
+    svg.appendChild(line);
+    forecast.forEach(function (v, k) {
+      var idx = actualCount + k;
+      var dot = document.createElementNS(NS, 'circle');
+      dot.setAttribute('class', 'min-ai-dot');
+      dot.setAttribute('cx', idx * slot + slot / 2);
+      dot.setAttribute('cy', y(v));
+      dot.setAttribute('r', 1.6);
+      svg.appendChild(dot);
+    });
+    // anchor the forecast to the last real candle so it visibly starts there
+    var bridge = document.createElementNS(NS, 'circle');
+    bridge.setAttribute('class', 'min-ai-dot');
+    bridge.setAttribute('cx', (actualCount - 1) * slot + slot / 2);
+    bridge.setAttribute('cy', y(lastClose));
+    bridge.setAttribute('r', 2.4);
+    svg.appendChild(bridge);
+
+    // ---- Vertical datetime lines across the actual (past) region ----
+    var tickEvery = 12;            // bars between time labels
+    var stepMinutes = 15;        // minutes per bar (15m -> a multi-day window)
+    var now = new Date();
+    var nTicks = Math.floor(actualCount / tickEvery);
+    for (var t = 0; t <= nTicks; t++) {
+      var bar = t * tickEvery;
+      var tx = bar * slot + slot / 2;
+      // vertical line spanning the price band
+      var vline = document.createElementNS(NS, 'line');
+      vline.setAttribute('class', 'min-time-line');
+      vline.setAttribute('x1', tx); vline.setAttribute('x2', tx);
+      vline.setAttribute('y1', top); vline.setAttribute('y2', bottom);
+      svg.appendChild(vline);
+      // datetime for this line (right = now at the boundary, step backward)
+      var td = new Date(now.getTime() - (actualCount - bar) * stepMinutes * 60000);
+      var label = ('0' + td.getHours()).slice(-2) + ':' + ('0' + td.getMinutes()).slice(-2);
+      var tt = document.createElementNS(NS, 'text');
+      tt.setAttribute('class', 'min-time-tick-text');
+      tt.setAttribute('y', bottom + 14);
+      // keep edge labels inside the chart: left-anchored at start, right-anchored at the boundary
+      var anchor = 'middle', lx = tx;
+      if (t === 0) { anchor = 'start'; lx = tx - 2; }
+      else if (t === nTicks) { anchor = 'end'; lx = tx + 2; }
+      tt.setAttribute('x', lx);
+      tt.setAttribute('text-anchor', anchor);
+      tt.textContent = label;
+      svg.appendChild(tt);
+    }
+    // emphasise the boundary between market and forecast ("now" = last real candle)
+    var nowLine = document.createElementNS(NS, 'line');
+    nowLine.setAttribute('class', 'min-timecursor');
+    nowLine.setAttribute('x1', boundaryX); nowLine.setAttribute('x2', boundaryX);
+    nowLine.setAttribute('y1', top); nowLine.setAttribute('y2', bottom);
+    svg.appendChild(nowLine);
+
+    // reflect the split in the summary: actual = last close, predicted = forecast end
+    var sum = document.querySelector('.min-pred-summary');
+    if (sum) {
+      var vals = sum.querySelectorAll('.min-pred-value');
+      if (vals[0]) vals[0].textContent = '$' + lastClose.toFixed(2);
+      if (vals[1]) vals[1].textContent = '$' + forecast[forecast.length - 1].toFixed(2);
+    }
+
+    // The chart SVG uses preserveAspectRatio="none", so it stretches vertically
+    // (width renders 1:1, but height is scaled by containerHeight/300). Counter-scale
+    // the time labels vertically so their height matches their width. Apply it AFTER
+    // layout settles (requestAnimationFrame) and on resize so the rendered height is
+    // known — otherwise the labels look too tall.
+    function fixTimeLabelScale() {
+      var r = svg.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      var k = 300 / r.height; // neutralises the vertical stretch (width is 1:1)
+      svg.querySelectorAll('.min-time-tick-text').forEach(function (el) {
+        var x = parseFloat(el.getAttribute('x')) || 0;
+        var y = parseFloat(el.getAttribute('y')) || 0;
+        el.setAttribute('transform',
+          'translate(' + x + ',' + y + ') scale(1,' + k + ') translate(' + (-x) + ',' + (-y) + ')');
+      });
+    }
+    // Show the end (latest market + forecast) by default instead of the start
+    var canvas = document.querySelector('.min-chart-canvas');
+    function atEnd() {
+      return canvas && canvas.scrollWidth - canvas.scrollLeft - canvas.clientWidth < 8;
+    }
+    function scrollToEnd() {
+      if (canvas) canvas.scrollLeft = canvas.scrollWidth;
+    }
+    scrollToEnd();
+    // apply label counter-scale once layout has settled, then on every resize
+    requestAnimationFrame(fixTimeLabelScale);
+    window.addEventListener('resize', function () {
+      var wasAtEnd = atEnd();
+      fixTimeLabelScale();
+      if (wasAtEnd) scrollToEnd();
+    });
+  })();
+</script>
+
+</body>
+</html>
