@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Photino.NET;
 using Photino.NET.Server;
 using System.Drawing;
@@ -10,9 +11,17 @@ class Program
 {
     public static bool IsDebugMode = false;
 
+    public static IServiceProvider Services { get; private set; } = null!;
+
     [STAThread]
     static void Main(string[] args)
     {
+        var services = new ServiceCollection();
+
+        // Register services for DI here.
+
+        Services = services.BuildServiceProvider();
+
         PhotinoServer
             .CreateStaticFileServer(args, out string baseUrl)
             .RunAsync();
