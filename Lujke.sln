@@ -4,7 +4,7 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lujke", "Lujke", "{5984ABB5-6F01-3A77-2B20-02A4CDE37F14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloPhotino.Vue", "Lujke\HelloPhotino.Vue.csproj", "{CB04CB30-C6EC-7C25-875D-3DFED5EF1734}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lujke.Vue", "Lujke\Lujke.Vue.csproj", "{CB04CB30-C6EC-7C25-875D-3DFED5EF1734}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
